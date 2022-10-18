@@ -47,7 +47,7 @@ and copy-paste the path that appears in the vsearchcluster.py script.
 
 In the attached documents you can find:
 
-1. PN40024.fasta: The reference genome of _Vitis vinifera_ in the V4 version of PN40024, fasta document containing the last sequencing data available at this moment (october/2022). 
+1. [PN40024.zip](https://integrape.eu/wp-content/uploads/2021/11/PN40024.v4_11_05_21.zip): click to download the reference genome of _Vitis vinifera_ in the V4 version of PN40024, the fasta document contain the last sequencing data available at this moment (October/2022). 
 
 2. Mitesvides.fasta: Output file obtained from the MiteFinderII analysis, in the format, for all the 19.819 MITEs identified in the grapevine genome:
 
@@ -65,11 +65,11 @@ Where the 6 means the serial number of chromosome and 4131|4140|4194|4203 are th
 
 **Final remarks**
 
-For any doubt don't hesitate to [email me](alvaro.vidal@fmach.it).
-
 This work was supported by COST Action CA18111 [PlantEd](https://plantgenomeediting.eu/) by the Virtual Mobility Grant "MITEs identification in grapevine genome as a tool for future genome editing target to improve drought resistance".
 
 This work was carried out in a colaborative way between the Biotechnology vegetal unit from the Fondazione Edmund Mach (TN, Italy), and the TOMS Biolab from I2SysBio (Valencia, Spain). By Álvaro Vidal Valenzuela, David Navarro, Tomás Matus and Mickael Malnoy.
+
+For any doubt don't hesitate to [email me](alvaro.vidal@fmach.it).
 
 
 
