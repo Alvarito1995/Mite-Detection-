@@ -1,9 +1,9 @@
-# Mite-Detection-In-Grapevine-(Linux-based).
+# (LINUX-BASED)-Mite-Detection-In-Grapevine-Genome.
 **MITEs detection in grapevine's reference genome**
 
-**Entry _Under Cosntruction!_**
+**Entry _Under Construction!_**
 
-As a effort to ensure the alimentary soverinity to the future generations, blablabla...
+As a effort to ensure the alimentary sovereignty to the future generations, blablabla...
 
 Index:
 
