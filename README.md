@@ -13,7 +13,9 @@ Index:
 
 3. Protocol used for the analysis in the V4 PN40024 reference genome of _Vitis vinifera_.
 
-4. Details regarding the Attached Documents.
+4. Troubleshooting.
+
+5. Details regarding the Attached Documents.
 
 6. Final remarks.
 
