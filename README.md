@@ -1,5 +1,5 @@
-# (LINUX-BASED)-Mite-Detection-In-Grapevine-Genome.
-**MITEs detection in grapevine's reference genome focused in the Drought tolerance related-MITEs, as an example that can be extrapolated to other plants species**
+# (LINUX-BASED) MITE Detection In Grapevine Genome.
+**_Miniature Inverted-repeat Transposable Elements_ (MITEs) detection in grapevine's reference genome focused in the Drought tolerance related-MITEs, as an example that can be extrapolated to other plants species**
 
 **This Entry is  _¡Under Construction!_**
 
@@ -33,6 +33,8 @@ Index:
 
 
 **Protocol for MITEs detection, classification and study**
+
+
 
 As Jbrowse doesn't detect that type of file, should be transformed to [.BED format](https://genome.ucsc.edu/FAQ/FAQformat.html#format1), 
 
