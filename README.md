@@ -19,14 +19,14 @@ Index:
 
 
 **Programs used**
-MiteFinder II:
-MiteTracker:
-Mitetracker/blast:
-MiteTracker/vsearch:
-R-cran:
-RStudio:
-'TE' package for R:
-Jbrowse:
+1. MiteFinder II:
+2. MiteTracker:
+3. Mitetracker/blast:
+4. MiteTracker/vsearch:
+5. R-cran:
+6. RStudio:
+7. 'TE' package for R:
+8. Jbrowse:
 
 
 **Protocol for MITEs detection, classification and study**
@@ -36,7 +36,7 @@ Jbrowse:
 
 *Clustering problem:* In my case, I've a big problem with the Clustering analysis by MiteTracker/Vsearch, because when MITETracker.py script opens the vsearchcluster.py, it was impossible to find the library "vsearch" (it's shared library). The solution was to change the line "./vsearchVERSION/bin/vsearch" for the complete path to the library "/home/user/vsearchVERSION/bin/vsearch".
 If you're not sure about the path to your vsearch, just run this:
-> find /home -type f -name vsearch
+`find /home -type f -name vsearch `
 and copy the path that appears.
 
 **Attached documents**
