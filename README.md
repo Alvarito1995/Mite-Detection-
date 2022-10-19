@@ -24,10 +24,10 @@ As a effort to ensure the alimentary sovereignty to the future generations, blab
 
 
 **Programs used**
-1. [MiteFinderII](https://github.com/jhu99/miteFinder)[^4].
-2. [MiteTracker](https://github.com/INTABiotechMJ/MITE-Tracker)[^3]
-3. [Mitetracker/blast](https://blast.ncbi.nlm.nih.gov/doc/elastic-blast/tutorials/pypi-install.html)[^2]
-4. [MiteTracker/vsearch](https://github.com/torognes/vsearch)[^1]
+1. [MiteFinderII](https://github.com/jhu99/miteFinder)[^1].
+2. [MiteTracker](https://github.com/INTABiotechMJ/MITE-Tracker)[^2]
+3. [Mitetracker/blast](https://blast.ncbi.nlm.nih.gov/doc/elastic-blast/tutorials/pypi-install.html)[^3]
+4. [MiteTracker/vsearch](https://github.com/torognes/vsearch)[^4]
 5. [R](www.r-project.org)
 6. [RStudio](www.rstudio.com)
 7. ['TE' package for R](https://cran.r-project.org/web/packages/TE/index.html)
@@ -68,7 +68,20 @@ f.close()
 4. Once you obtain the .BED file, you can open the JBrowse of your genome with the tracks that makes easier the analysis for you, in this case the V3 ID code ("genenames-track") was used, in order to estimate the promoter location in each case.
 5. Select the genes that interest you the most, and look the UTR region up to 2500 pb if thereŕe some MITEs identified, and take the specific sequence of all of them in .fasta format. 
 In this case, we used 42 genes related to drought-stress response in grapevine, looking on their UTR region and found 11 MITEs to study.
-6. As the main objective of this analysis is to identify the drought-stress related MITEs, the next step is to look wich of the detected MITEs are the mPIF-like type, using multiple sequence alignment and phylogenetic tree construction. So 
+6. As the main objective of this analysis is to identify the drought-stress related MITEs, the next step is to look wich of the detected MITEs are the mPIF-like type, using multiple sequence alignment and phylogenetic tree construction. So we identify some consensus sequences of MITE (in document _consenso.fasta_), and make a .FASTA file containing all of the consensus sequence plus the MITEs identifyed in the normal format:
+
+```
+>NAME
+(SEQ)ATTATATTATTAT
+```
+
+7. In order to carry out the multiple sequence alignment the `mafft` code was used to obtain the **.phy** file.
+8. Then IQtree was used by typing `iqtree -b 1000 -s DOC.phy -nt 4` in the terminal, for a 1000 boostrap analysis (if you want less-fiable but quick result, just use less boostraps), and you will obtain a **.treefile** file that can be analysed online in xxx looking for nodes between your sequence of interest (mPIF in this case), with your input sequences with at least 70 as a value (70%).
+9. Finally, to carry out the drought-related MITEs identification in promoters, we select the more similar sequences with mPIF1.[^5]
+
+Other analysis that you can carry out in this field, is the estatistical analysis of MITEs in your genome by using MiteTracker and RStudio with the TE package. 
+
+***SETING THIS UP YET***
 
 
  
@@ -79,6 +92,7 @@ In this case, we used 42 genes related to drought-stress response in grapevine, 
 If you're not sure about the path to your vsearch, just run this:
 `find /home -type f -name vsearch `
 and copy-paste the path that appears in the vsearchcluster.py script.
+For other specific Toubles, please check in each tool's webpage.
 
 **Attached documents**
 
@@ -88,9 +102,11 @@ In the attached documents you can find:
 
 2. Mitesvides.fasta: Output file obtained from the MiteFinderII analysis, in the format, for all the 19.819 MITEs identified in the grapevine genome:
 
-`mite|6|4131|4140|4194|4203|t3|4138|m1|ave_score:0.649614 
+```
+mite|6|4131|4140|4194|4203|t3|4138|m1|ave_score:0.649614 
 GTTGCTCACCCCTGCTCTTGAGCCTTTGAAACATCTACACCAATTTTTTATTGTTTTCAT 
-CTATCCGTTTAAGTGGATTAAAATGATGTTTTTTAATTTTTTTTTATATTTTTTGGGCCG...`
+CTATCCGTTTAAGTGGATTAAAATGATGTTTTTTAATTTTTTTTTATATTTTTTGGGCCG...
+```
 
 Where the 6 means the serial number of chromosome and 4131|4140|4194|4203 are the position of TIRs. t3 means the length of TSD is 3. m1 means the TIR is the imperfect inverted repeats and 4138 is the mismatch base. The ave_score:0.649614 is the score of MITE sequence(More details can be seen in [MiteFinderII](https://github.com/jhu99/miteFinder)).
 
@@ -108,15 +124,17 @@ Where the 6 means the serial number of chromosome and 4131|4140|4194|4203 are th
 
 This work was supported by COST Action CA18111 [PlantEd](https://plantgenomeediting.eu/) by the Virtual Mobility Grant "MITEs identification in grapevine genome as a tool for future genome editing target to improve drought resistance".
 
-This work was carried out in a colaborative way between the Biotechnology vegetal unit from the Fondazione Edmund Mach (TN, Italy), and the TOMS Biolab from I2SysBio (Valencia, Spain). By Álvaro Vidal Valenzuela, David Navarro, Tomás Matus and Mickael Malnoy.
+This work was carried out in a colaborative way between the Fondazione Edmund Mach (TN, Italy), and the I2SysBio (Valencia, Spain). By Álvaro Vidal Valenzuela, David Navarro, Tomás Matus and Mickael Malnoy.
 
 For any doubt don't hesitate to [email me](alvaro.vidal@fmach.it).
 
 
 
-[^1]: Rognes T, Flouri T, Nichols B, Quince C, Mahé F. (2016) VSEARCH: a versatile open source tool for metagenomics. PeerJ 4:e2584. doi: 10.7717/peerj.2584
-[^2]: Crescente, J., Zavallo, D., Helguera, M. et al. MITE Tracker: an accurate approach to identify miniature inverted-repeat transposable elements in large genomes. BMC Bioinformatics 19, 348 (2018). https://doi.org/10.1186/s12859-018-2376-y
-[^3]: Crescente, Juan Manuel, et al. "MITE Tracker: an accurate approach to identify miniature inverted-repeat transposable elements in large genomes." BMC Bioinformatics 19.1 (2018): 348. 
-[^4]: Hu, J., Zheng, Y. & Shang, X. MiteFinderII: a novel tool to identify miniature inverted-repeat transposable elements hidden in eukaryotic genomes. BMC Med Genomics 11 (Suppl 5), 101 (2018). https://doi.org/10.1186/s12920-018-0418-y
+[^4]: Rognes T, Flouri T, Nichols B, Quince C, Mahé F. (2016) VSEARCH: a versatile open source tool for metagenomics. PeerJ 4:e2584. doi: 10.7717/peerj.2584
+[^3]: Crescente, J., Zavallo, D., Helguera, M. et al. MITE Tracker: an accurate approach to identify miniature inverted-repeat transposable elements in large genomes. BMC Bioinformatics 19, 348 (2018). https://doi.org/10.1186/s12859-018-2376-y
+[^2]: Crescente, Juan Manuel, et al. "MITE Tracker: an accurate approach to identify miniature inverted-repeat transposable elements in large genomes." BMC Bioinformatics 19.1 (2018): 348. 
+[^1]: Hu, J., Zheng, Y. & Shang, X. MiteFinderII: a novel tool to identify miniature inverted-repeat transposable elements hidden in eukaryotic genomes. BMC Med Genomics 11 (Suppl 5), 101 (2018). https://doi.org/10.1186/s12920-018-0418-y
+[^5]: Chundong Niu, Lijuan Jiang, Fuguo Cao, Chen Liu, Junxing Guo, Zitong Zhang, Qianyu Yue, Nan Hou, Zeyuan Liu, Xuewei Li, Muhammad Mobeen Tahir, Jieqiang He, Zhongxing Li, Chao Li, Fengwang Ma, Qingmei Guan, Methylation of a MITE insertion in the MdRFNR1-1 promoter is positively associated with its allelic expression in apple in response to drought stress, The Plant Cell, Volume 34, Issue 10, October 2022, Pages 3983–4006, https://doi.org/10.1093/plcell/koac220
+
 
  
