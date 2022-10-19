@@ -5,11 +5,11 @@
 
 As a effort to ensure the alimentary sovereignty to the future generations, blablabla...
 
-Index:
+**Index:**
 
 1. Explanation of the procedure.
 
-2. Programs needed.
+2. Programs used.
 
 3. Protocol used for the analysis in the V4 PN40024 reference genome of _Vitis vinifera_.
 
@@ -32,13 +32,46 @@ Index:
 6. [RStudio](www.rstudio.com)
 7. ['TE' package for R](https://cran.r-project.org/web/packages/TE/index.html)
 8. [Jbrowse](https://jbrowse.org/jb2/)
+9. [Mafft](https://mafft.cbrc.jp/alignment/software/linux.html)
+10. [Iqtree](http://www.iqtree.org/doc/Quickstart)
 
 
 **Protocol for MITEs detection, classification and study**
+Once all the programs and packages listed before were installed and tested (Each one has an explanation for the instalation in the official page), the procedure starts with the MITE search upon the Reference genome, taking at least 80% of identity for each MITE, if you want to extrapolate it to other cultivars (this is the case).
+The first and more usefull approach used was the Jbrowse's track construction for MITE search:
+1. First you should download the sequence of your genome of reference
+2. The next step is to analyse all the genome looking for the basic domain of MITE by using MiteFinderII opening the terminal from the its folder and typing `python3 MITETracker.py  -g /home/user/PATHWAY/genome.fasta -j OUTPUTNAME`
+3. As Jbrowse doesn't detect .FASTA files, this should be transformed to [.BED format](https://genome.ucsc.edu/FAQ/FAQformat.html#format1), so the output of this analysis (described bellow in the _attached documents_ part), should be transformed to a Jbrowse-track file, by changinf it to .BED format by using the **Mites_fasta_to_bed.py** script that's contains:
 
 
+```
+f_in = "datos/mitesvides.fasta"
+f = open(f_in, "r", encoding="utf-8")
+out_text = ""
+for line in f:
+    if line[0] == ">":
+        temp = line.split("|")
+        chromosome = temp[1]
+        TSD = int(temp[6][1:])
+        start = str(int(temp[2]) - TSD)
+        end = str(int(temp[5]) + TSD)
+        name = "mite" + "_" + temp[8] + "_" + temp[7]
+        out_text += ("chr" + chromosome + "\t" + start + "\t" + end +
+                    "\t" + name + "\t" + "1" + "\t" + "+" + "\n")
+f.close()
+f_out = "mitesvides.bed"
+f = open(f_out, "w", encoding="utf-8")
+f.write(out_text)
+f.close()
+```
 
-As Jbrowse doesn't detect that type of file, should be transformed to [.BED format](https://genome.ucsc.edu/FAQ/FAQformat.html#format1), 
+4. Once you obtain the .BED file, you can open the JBrowse of your genome with the tracks that makes easier the analysis for you, in this case the V3 ID code ("genenames-track") was used, in order to estimate the promoter location in each case.
+5. Select the genes that interest you the most, and look the UTR region up to 2500 pb if thereŕe some MITEs identified, and take the specific sequence of all of them in .fasta format. 
+In this case, we used 42 genes related to drought-stress response in grapevine, looking on their UTR region and found 11 MITEs to study.
+6. As the main objective of this analysis is to identify the drought-stress related MITEs, the next step is to look wich of the detected MITEs are the mPIF-like type, using multiple sequence alignment and phylogenetic tree construction. So 
+
+
+ 
 
 **Troubleshooting**
 
@@ -65,7 +98,11 @@ Where the 6 means the serial number of chromosome and 4131|4140|4194|4203 are th
 
 4. Mitesvides.bed: Document created to use as a Jbrowse Track, that let us analize the genomic location of each specific MITE regarding the genes. This gives us the possibility to study the Cis-Regulatory MITEs, the orientation and sequences involved. 
 
-6. 
+6. Seqtarget.fasta: Document with the identified MITEs in the promotos of the drought-related genes identified in 
+
+7. Consenso.fasta: Document used for the sequence alignment as a query to identify families of MITEs.
+
+8. DOC.phy.treefile: Phylogenetic tree with 1000 boostraps between the identified MITEs and consensus ones.
 
 **Final remarks**
 
