@@ -3,7 +3,7 @@
 
 **This Entry is  _¡Under Construction!_**
 
-As a effort to ensure the alimentary sovereignty to the future generations, blablabla...
+As a effort to ensure the alimentary sovereignty to the future generations, we must, as scientists, try to maintain technological advances at the level that the future requires, which is why this work of compilation and analysis of Miniature Inverted-repeat Transposable Elements is carried out, in search of new clues to understand and improve tolerance to water stress by fruit trees such as vines and apple trees, but that can be used for other plant species, as a tool for future genetic improvements that allow us to feed the future world. For us as a team, the goal is that wine can continue to exist as long as humanity does, cheers!
 
 **Index:**
 
@@ -22,6 +22,7 @@ As a effort to ensure the alimentary sovereignty to the future generations, blab
 
 **Explanation**
 
+This month (October 2022) it was published a research article from the Qingmei Guan group[^5], that shows a relationship between an specific MITE present in the promoter of the apple tree gene "MdRFNR1" that make it drought-activated. Therefore, it became necessary to study this specific MITE in the grapevine plant genome, to analyze the possibilities of a conserved function in fruit trees, and thus explore the possibilities that non-coding DNA gives us in the gene improvement of plants, and let us elucidate a little better how cis-elements controls the gene expression under stress conditions. This work of search and analysis of MIT elements related to the response to water stress, is framed within Álvaro Vidal's doctoral thesis, and is complemented by [VitViz/HydricAtlas](http://www.vitviz.tk/HydricStressAtlas/), an application for generating heatmaps to see gene expression in response to drought, developed at the beginning of this year, thats takes all the RNA-seq data available for grapevine and drought, which allows separating expression levels by tissues, stress levels, cultivars and bioprojects. This application was used in a complementary way with this analysis, to improve the results. 
 
 **Programs used**
 1. [MiteFinderII](https://github.com/jhu99/miteFinder)[^1].
@@ -76,12 +77,12 @@ In this case, we used 42 genes related to drought-stress response in grapevine, 
 ```
 
 7. In order to carry out the multiple sequence alignment the `mafft` code was used to obtain the **.phy** file.
-8. Then IQtree was used by typing `iqtree -b 1000 -s DOC.phy -nt 4` in the terminal, for a 1000 boostrap analysis (if you want less-fiable but quick result, just use less boostraps), and you will obtain a **.treefile** file that can be analysed online in xxx looking for nodes between your sequence of interest (mPIF in this case), with your input sequences with at least 70 as a value (70%).
+8. Then IQtree was used by typing `iqtree -b 1000 -s DOC.phy -nt 4` in the terminal, for a 1000 bootstrap analysis (if you want less-fiable but quick result, just use less bootstraps), and you will obtain a **.treefile** file that can be analysed online in [IcyTree](Icytree.org) looking for nodes between your sequence of interest (mPIF1 in this case), with your input sequences with at least 70 as a value (70%).
 9. Finally, to carry out the drought-related MITEs identification in promoters, we select the more similar sequences with mPIF1.[^5]
 
 Other analysis that you can carry out in this field, is the estatistical analysis of MITEs in your genome by using MiteTracker and RStudio with the TE package. 
 
-***SETING THIS UP YET***
+***SETING THIS UP (YET)***
 
 
  
