@@ -82,7 +82,7 @@ In this case, we used 42 genes related to drought-stress response in grapevine, 
 
 Other analysis that you can carry out in this field, is the estatistical analysis of MITEs in your genome by using MiteTracker and RStudio with the TE package. 
 
-***SETING THIS UP (YET)***
+***SETTING THIS UP (YET)***
 
 
  
@@ -115,7 +115,7 @@ Where the 6 means the serial number of chromosome and 4131|4140|4194|4203 are th
 
 4. Mitesvides.bed: Document created to use as a Jbrowse Track, that let us analize the genomic location of each specific MITE regarding the genes. This gives us the possibility to study the Cis-Regulatory MITEs, the orientation and sequences involved. 
 
-6. Seqtarget.fasta: Document with the identified MITEs in the promotos of the drought-related genes identified in 
+6. secuenciasblanco.fasta: Document with the identified MITEs in the promotos of the drought-related genes identified in 
 
 7. Consenso.fasta: Document used for the sequence alignment as a query to identify families of MITEs.
 
