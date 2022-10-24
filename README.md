@@ -123,7 +123,7 @@ Where the 6 means the serial number of chromosome and 4131|4140|4194|4203 are th
 
 **Final remarks**
 
-This work was supported by COST Action CA18111 [PlantEd](https://plantgenomeediting.eu/) by the Virtual Mobility Grant "MITEs identification in grapevine genome as a tool for future genome editing target to improve drought resistance".
+This work was supported by COST Action CA18111 [PlantEd](https://plantgenomeediting.eu/) by the Virtual Mobility Grant "MITEs identification in grapevine genome as a tool for future genome editing target to improve drought resistance", ID: E-COST-GRANT-CA18111-93549a5d.
 
 This work was carried out in a colaborative way between the Fondazione Edmund Mach (TN, Italy), and the I2SysBio (Valencia, Spain). By Álvaro Vidal Valenzuela, David Navarro, Tomás Matus and Mickael Malnoy.
 
